@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '/pages/home/binding.dart';
 
 import '/pages/home/view.dart';
 import 'core/styles/styles.dart';
@@ -13,13 +16,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Ifood',
+    return GetMaterialApp(
+      title: 'Ifood Clone',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorSchemeSeed: primaryColor,
       ),
       home: const HomePage(),
+      initialBinding: HomeBinding(),
     );
   }
 }

@@ -1,7 +1,10 @@
+import 'package:flutter/material.dart';
+
 class Category {
   int id;
   String name;
-  String photoAsset;
+  String photoUrl;
+  Color color;
 
-  Category({required this.id, required this.name, required this.photoAsset});
+  Category({required this.id, required this.name, required this.photoUrl, this.color = Colors.green});
 }
