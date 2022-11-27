@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controller.dart';
-import 'business_item.dart';
+import 'business_item_card.dart';
 
 class BusinessList extends StatelessWidget {
   const BusinessList({Key? key}) : super(key: key);
@@ -14,11 +14,16 @@ class BusinessList extends StatelessWidget {
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {
             final item = controller.listOfBusiness[index];
-            return BusinessWidget(
+            return BusinessItemCard(
               name: item.name,
               category: item.categories.first.title,
               rating: item.rating,
               image: item.photoUrl,
+              onTap: () {
+                // for now only. use hive for storage
+                controller.addOnLastSeenList(item);
+                // go to detail page
+              },
             );
           },
           childCount: controller.listOfBusiness.length,

@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:dio/dio.dart';
-
-import '/pages/home/controller.dart';
-import '../../../core/api/api_util.dart';
 
 import '../../../core/data/categories_data.dart';
 import '../../../core/data/ifood_more_data.dart';
 
+import 'business_horizontal_list.dart';
 import 'business_list.dart';
 import 'filter_buttons.dart';
 import 'banner_widget.dart';
@@ -23,8 +19,11 @@ class StarterHome extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverGrid(
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 120,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            // maxCrossAxisExtent: 120,
+            crossAxisCount: 4,
+            mainAxisExtent: 100,
+            mainAxisSpacing: 15,
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
@@ -38,29 +37,29 @@ class StarterHome extends StatelessWidget {
           ),
         ),
         const CarouselWidget(),
-        HorizontalList(
+        const BusinessHorizontalList(
           title: 'Últimas lojas',
-          list: IFOOD_MORE_DATA,
-          itemType: TypeOfContainer.circle,
+          showFamousList: false,
         ),
         const BannerWidget(),
         HorizontalList(
           title: 'Mais iFood para você',
           list: IFOOD_MORE_DATA,
         ),
-        HorizontalList(
+        const BusinessHorizontalList(
           title: 'Famosos no iFood',
-          list: IFOOD_MORE_DATA,
-          itemType: TypeOfContainer.circle,
         ),
         HorizontalList(
           list: SUBCATEGORIES_DATA,
-          itemType: TypeOfContainer.colored,
+          isContainerNormal: false,
         ),
         const FilterButtons(),
         const SliverToBoxAdapter(
-          child: Text('Lojas',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19)),
+          child: Padding(
+            padding: EdgeInsets.all(12),
+            child: Text('Lojas',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19)),
+          ),
         ),
         const BusinessList(),
       ],

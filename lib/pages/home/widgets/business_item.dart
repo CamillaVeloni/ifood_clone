@@ -1,86 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
-class BusinessWidget extends StatelessWidget {
+import '../../../core/styles/styles.dart';
+
+class BusinessItem extends StatelessWidget {
   final String name;
-  final int rating;
-  final String category;
-  final String image;
-
-  const BusinessWidget(
-      {Key? key,
-      required this.name,
-      required this.rating,
-      required this.category,
-      required this.image})
-      : super(key: key);
+  final String imageUrl;
+  const BusinessItem({Key? key, required this.name, required this.imageUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // last seen ++
+        print('nome loja $name');
       },
-      child: Container(
-        margin: const EdgeInsets.all(4),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: SizedBox(
+        width: 90,
+        child: Column(
           children: <Widget>[
-            Expanded(
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    width: 70,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade400,),
-                      shape: BoxShape.circle,
-                    ),
-                    child: CircleAvatar(
-                      backgroundImage: NetworkImage(image),
-                      backgroundColor: Colors.transparent,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 12,
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          name,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16),
-                        ),
-                        Text.rich(TextSpan(
-                            style: TextStyle(
-                                color: Colors.grey.shade700, fontSize: 14),
-                            children: [
-                              TextSpan(
-                                text: '★ $rating ',
-                                style: const TextStyle(
-                                    color: Color.fromARGB(255, 226, 135, 67)),
-                              ),
-                              TextSpan(text: '• $category '),
-                              const TextSpan(text: '• 2,9 km'),
-                            ])),
-                        const SizedBox(height: 5),
-                        Text(
-                          '50-60 min • R\$ 5,90',
-                          style: TextStyle(color: Colors.grey.shade700),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+            Container(
+              width: 80,
+              height: 80,
+              margin: const EdgeInsets.all(6),
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey.shade400,),
+                shape: BoxShape.circle,
+              ),
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(imageUrl),
+                backgroundColor: Colors.transparent,
               ),
             ),
-            IconButton(
-                icon: const Icon(CupertinoIcons.heart),
-                onPressed: () {},
-                color: Colors.grey.shade700),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Text(
+                  name,
+                  overflow: TextOverflow.visible,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: kTextColor, ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

@@ -15,8 +15,19 @@ class HomeController extends GetxController {
   void changeActivePage(v) => activePage.value = v;
 
   // business lists
-  final listOfBusiness = <BusinessRestModel>[].obs;
-  final lastSeenList = <BusinessRestModel>[];
+  final _listOfBusiness = <BusinessRestModel>[].obs;
+  final _lastSeenList = <BusinessRestModel>[];
+  final _mostFamousList = <BusinessRestModel>[];
+
+  RxList<BusinessRestModel> get listOfBusiness => _listOfBusiness;
+  List<BusinessRestModel> get lastSeenList => _lastSeenList;
+  List<BusinessRestModel> get mostFamousList => _mostFamousList;
+
+  // for now
+  void addOnLastSeenList(BusinessRestModel item) {
+    lastSeenList.addIf(!lastSeenList.contains(item), item);
+    update();
+  }
 
   // banners
   List<String> allBanners = [
@@ -34,7 +45,10 @@ class HomeController extends GetxController {
     randomBanner = allBanners[Utils.next(0, 5)];
 
     // get list of business (has only restaurants for now) from api
-    listOfBusiness.assignAll(await ApiUtil.getAllRestaurants());
+    _listOfBusiness.assignAll(await ApiUtil.getAllRestaurants());
+    // famous (by rating)
+    _mostFamousList.assignAll(_listOfBusiness.where((e) => e.rating == 5));
+    update();
 
     super.onInit();
   }

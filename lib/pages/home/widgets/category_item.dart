@@ -15,8 +15,8 @@ class CategoryItem extends StatelessWidget {
       onTap: () {
         print('categoria $name');
       },
-      child: Container(
-        width: 90,
+      child: SizedBox(
+        width: 80,
         child: Column(
           children: <Widget>[
             Container(
@@ -30,12 +30,14 @@ class CategoryItem extends StatelessWidget {
               ),
               child: Image.asset('assets/images/categories/$photoAsset'),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: Text(
-                name,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(color: kTextColor, ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Text(
+                  name,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(color: kTextColor, ),
+                ),
               ),
             ),
           ],
