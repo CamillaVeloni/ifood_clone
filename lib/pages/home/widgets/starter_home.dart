@@ -8,7 +8,7 @@ import '../../../core/api/api_util.dart';
 import '../../../core/data/categories_data.dart';
 import '../../../core/data/ifood_more_data.dart';
 
-import 'action_buttons.dart';
+import 'filter_buttons.dart';
 import 'banner_widget.dart';
 import 'carousel_widget.dart';
 import '../../../core/widgets/horizontal_list.dart';
@@ -56,7 +56,7 @@ class StarterHome extends StatelessWidget {
           list: SUBCATEGORIES_DATA,
           itemType: TypeOfContainer.colored,
         ),
-        ActionButtons(),
+        FilterButtons(),
         // SliverToBoxAdapter(
         //   child: Padding(
         //     padding: const EdgeInsets.all(8.0),

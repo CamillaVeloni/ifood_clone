@@ -6,22 +6,22 @@ import 'menu.dart';
 part 'business.g.dart';
 
 @JsonSerializable()
-class Business {
+class BusinessRestModel {
   final int id;
   final String name;
   final int rating;
   @JsonKey(name: 'review_count')
   final int reviewCount;
   final String price;
-  final List<SubCategory> categories;
+  final List<CategoryRestModel> categories;
   @JsonKey(name: "menu_tags")
   final List<String> menuTags;
-  final List<Menu> menu;
+  final List<MenuRestModel> menu;
   @JsonKey(name: 'photo_url')
   final String photoUrl;
   // final List<ReviewRestModel>? reviews;
 
-  Business({
+  BusinessRestModel({
     required this.id,
     required this.name,
     required this.rating,
@@ -34,6 +34,6 @@ class Business {
     // required this.reviews,
   });
 
-  factory Business.fromJson(Map<String, dynamic> json) => _$BusinessFromJson(json);
+  factory BusinessRestModel.fromJson(Map<String, dynamic> json) => _$BusinessFromJson(json);
   Map<String, dynamic> toJson() => _$BusinessToJson(this);
 }

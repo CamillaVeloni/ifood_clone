@@ -14,7 +14,7 @@ class HomeController extends GetxController {
   void changeActivePage(v) => activePage.value = v;
 
   // last seen
-  final lastSeenList = <Business>[];
+  final lastSeenList = <BusinessRestModel>[];
 
   // banners
   List<String> allBanners = [

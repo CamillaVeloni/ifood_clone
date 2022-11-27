@@ -12,8 +12,8 @@ abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
   @GET(Constants.restaurantsUrl)
-  Future<List<Business>> getRestaurants();
+  Future<List<BusinessRestModel>> getRestaurants();
 
   @GET(Constants.categoriesUrl)
-  Future<List<SubCategory>> getCategories();
+  Future<List<CategoryRestModel>> getCategories();
 }
