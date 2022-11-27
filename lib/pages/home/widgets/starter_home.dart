@@ -8,6 +8,7 @@ import '../../../core/api/api_util.dart';
 import '../../../core/data/categories_data.dart';
 import '../../../core/data/ifood_more_data.dart';
 
+import 'business_list.dart';
 import 'filter_buttons.dart';
 import 'banner_widget.dart';
 import 'carousel_widget.dart';
@@ -56,52 +57,12 @@ class StarterHome extends StatelessWidget {
           list: SUBCATEGORIES_DATA,
           itemType: TypeOfContainer.colored,
         ),
-        FilterButtons(),
-        // SliverToBoxAdapter(
-        //   child: Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: ElevatedButton(
-        //       onPressed: () async {
-        //         final client = await ApiUtil.getRestClient();
-        //
-        //         client.getRestaurants().then((it) => print(it.length));
-        //       },
-        //       child: const Text('click me pls'),
-        //     ),
-        //   ),
-        // ),
-        // SliverList(
-        //   delegate: SliverChildBuilderDelegate(
-        //         (BuildContext context, int index) {
-        //       return Padding(
-        //         padding: const EdgeInsets.all(8.0),
-        //         child: Container(
-        //           color:
-        //           index % 2 == 0 ? Colors.green : Colors.greenAccent,
-        //           height: 80,
-        //           alignment: Alignment.center,
-        //           child: Text(
-        //             "Item $index",
-        //             style: const TextStyle(fontSize: 30),
-        //           ),
-        //         ),
-        //       );
-        //     },
-        //     childCount: 40,
-        //   ),
-        // ),
-        // SliverFixedExtentList(
-        //   itemExtent: 50.0,
-        //   delegate: SliverChildBuilderDelegate(
-        //     (BuildContext context, int index) {
-        //       return Container(
-        //         alignment: Alignment.center,
-        //         color: Colors.lightBlue[100 * (index % 9)],
-        //         child: Text('List Item $index'),
-        //       );
-        //     },
-        //   ),
-        // ),
+        const FilterButtons(),
+        const SliverToBoxAdapter(
+          child: Text('Lojas',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19)),
+        ),
+        const BusinessList(),
       ],
     );
   }

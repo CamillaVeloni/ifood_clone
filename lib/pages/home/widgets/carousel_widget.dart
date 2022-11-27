@@ -50,8 +50,10 @@ class CarouselWidget extends StatelessWidget {
                   }),
             ),
             Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: indicators(controller.allBanners.length, controller.activePage.value)),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: indicators(
+                  controller.allBanners.length, controller.activePage.value),
+            ),
           ],
         ),
       );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ifood_clone/core/api/api_util.dart';
 
 import '../../core/utils/utils.dart';
 import '/core/models/business.dart';
@@ -13,7 +14,8 @@ class HomeController extends GetxController {
   PageController get pageController => _pageController;
   void changeActivePage(v) => activePage.value = v;
 
-  // last seen
+  // business lists
+  final listOfBusiness = <BusinessRestModel>[].obs;
   final lastSeenList = <BusinessRestModel>[];
 
   // banners
@@ -27,9 +29,12 @@ class HomeController extends GetxController {
   late String randomBanner;
 
   @override
-  void onInit() {
+  void onInit() async {
     _pageController = PageController(viewportFraction: 0.8);
     randomBanner = allBanners[Utils.next(0, 5)];
+
+    // get list of business (has only restaurants for now) from api
+    listOfBusiness.assignAll(await ApiUtil.getAllRestaurants());
 
     super.onInit();
   }
