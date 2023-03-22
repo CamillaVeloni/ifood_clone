@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
-import 'package:ifood_clone/core/models/business.dart';
+import '/core/models/business.dart';
 
 import 'rest_client.dart';
 

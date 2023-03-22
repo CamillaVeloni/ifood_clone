@@ -49,7 +49,9 @@ class BusinessHorizontalList extends StatelessWidget {
                       width: 12,
                     ),
                   ),
-                ) : Container();
+                ) : const Center(
+                  child: Text('Nenhuma loja recentemente visitada'),
+                );
               }
             ),
           ],

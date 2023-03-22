@@ -11,16 +11,34 @@ class HomePage extends GetView<HomeController> {
 
   Widget get _getAppBar => SliverAppBar(
         backgroundColor: Colors.white,
-        title: Row(
+        floating: true,
+        snap: true,
+        title: Stack(
+          alignment: Alignment.center,
           children: <Widget>[
-            Text(
-              controller.address,
-              style: const TextStyle(color: kTextTitlesColor, fontSize: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  controller.address,
+                  style: const TextStyle(color: kTextTitlesColor, fontSize: 16),
+                ),
+                const SizedBox(
+                  width: 2,
+                ),
+                const Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Colors.red,
+                  size: 18,
+                ),
+              ],
             ),
-            const Icon(
-              Icons.keyboard_arrow_down,
-              color: Colors.red,
-              size: 20,
+            Align(
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.notifications_none, color: Colors.red,),
+              ),
             ),
           ],
         ),
@@ -52,6 +70,7 @@ class HomePage extends GetView<HomeController> {
       body: DefaultTabController(
         length: 7,
         child: NestedScrollView(
+          floatHeaderSlivers: true,
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return [_getAppBar];
           },
