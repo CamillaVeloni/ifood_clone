@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:ifood_clone/core/widgets/circle_image.dart';
 
 class BusinessItemCard extends StatelessWidget {
   final String name;
   final int rating;
   final String category;
-  final String image;
+  final String imageUrl;
   final Function()? onTap;
 
   const BusinessItemCard(
@@ -13,7 +14,8 @@ class BusinessItemCard extends StatelessWidget {
       required this.name,
       required this.rating,
       required this.category,
-      required this.image, this.onTap})
+      required this.imageUrl,
+      this.onTap})
       : super(key: key);
 
   @override
@@ -28,22 +30,14 @@ class BusinessItemCard extends StatelessWidget {
             Expanded(
               child: Row(
                 children: <Widget>[
-                  Container(
-                    width: 70,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade400,),
-                      shape: BoxShape.circle,
-                    ),
-                    child: CircleAvatar(
-                      backgroundImage: NetworkImage(image),
-                      backgroundColor: Colors.transparent,
-                    ),
+                  Expanded(
+                    child: CircleImage(imageUrl: imageUrl, height: 60,),
                   ),
                   const SizedBox(
-                    width: 12,
+                    width: 10,
                   ),
                   Expanded(
+                    flex: 3,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[

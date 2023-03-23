@@ -18,7 +18,7 @@ class BusinessList extends StatelessWidget {
               name: item.name,
               category: item.categories.first.title,
               rating: item.rating,
-              image: item.photoUrl,
+              imageUrl: item.photoUrl,
               onTap: () {
                 // for now only. use hive for storage
                 controller.addOnLastSeenList(item);
