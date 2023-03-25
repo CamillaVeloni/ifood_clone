@@ -31,7 +31,10 @@ class BusinessItemCard extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: CircleImage(imageUrl: imageUrl, height: 60,),
+                    child: CircleImage(
+                      imageUrl: imageUrl,
+                      height: 60,
+                    ),
                   ),
                   const SizedBox(
                     width: 10,
@@ -47,18 +50,20 @@ class BusinessItemCard extends StatelessWidget {
                           style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
-                        Text.rich(TextSpan(
-                            style: TextStyle(
-                                color: Colors.grey.shade700, fontSize: 14),
-                            children: [
-                              TextSpan(
-                                text: '★ $rating ',
-                                style: const TextStyle(
-                                    color: Color.fromARGB(255, 226, 135, 67)),
-                              ),
-                              TextSpan(text: '• $category '),
-                              const TextSpan(text: '• 2,9 km'),
-                            ])),
+                        Text.rich(
+                          TextSpan(
+                              style: TextStyle(
+                                  color: Colors.grey.shade700, fontSize: 14),
+                              children: [
+                                TextSpan(
+                                  text: '★ $rating ',
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 226, 135, 67)),
+                                ),
+                                TextSpan(text: '• $category '),
+                                const TextSpan(text: '• 2,9 km'),
+                              ]),
+                        ),
                         const SizedBox(height: 5),
                         Text(
                           '50-60 min • R\$ 5,90',

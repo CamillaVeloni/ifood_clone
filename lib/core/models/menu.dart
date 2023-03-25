@@ -9,16 +9,14 @@ class MenuRestModel {
   double price;
   @JsonKey(name: "image_url")
   String imageUrl;
-  String tag;
 
   MenuRestModel(
       {required this.name,
       required this.description,
       required this.price,
-      required this.imageUrl,
-      required this.tag});
+      required this.imageUrl});
 
-  factory MenuRestModel.fromJson(Map<String, dynamic> json) => _$MenuFromJson(json);
+  factory MenuRestModel.fromJson(Map<String, dynamic> json) => _$MenuRestModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MenuToJson(this);
+  Map<String, dynamic> toJson() => _$MenuRestModelToJson(this);
 }

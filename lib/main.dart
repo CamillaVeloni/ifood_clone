@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '/pages/details/binding.dart';
-
-import '/pages/details/view.dart';
-import '/pages/home/binding.dart';
 import '/pages/home/view.dart';
+import '/pages/details/view.dart';
 
+import 'core/bindings/bindings.dart';
 import 'core/styles/styles.dart';
 
 void main() {

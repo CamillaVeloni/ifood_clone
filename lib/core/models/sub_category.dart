@@ -8,6 +8,6 @@ class CategoryRestModel {
 
   CategoryRestModel({required this.title});
 
-  factory CategoryRestModel.fromJson(Map<String, dynamic> json) => _$SubCategoryFromJson(json);
-  Map<String, dynamic> toJson() => _$SubCategoryToJson(this);
+  factory CategoryRestModel.fromJson(Map<String, dynamic> json) => _$CategoryRestModelFromJson(json);
+  Map<String, dynamic> toJson() => _$CategoryRestModelToJson(this);
 }

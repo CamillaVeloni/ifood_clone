@@ -23,7 +23,7 @@ class BusinessList extends StatelessWidget {
                 // for now only. use hive for storage
                 controller.addOnLastSeenList(item);
                 // go to detail page
-                Get.toNamed('/business_detail');
+                Get.toNamed('/business_detail', arguments: item);
               },
             );
           },

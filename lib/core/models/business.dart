@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'category_menu.dart';
 import 'sub_category.dart';
-import 'menu.dart';
 
 part 'business.g.dart';
 
@@ -14,11 +14,12 @@ class BusinessRestModel {
   final int reviewCount;
   final String price;
   final List<CategoryRestModel> categories;
-  @JsonKey(name: "menu_tags")
-  final List<String> menuTags;
-  final List<MenuRestModel> menu;
+  @JsonKey(name: "categories_menu")
+  final List<CategoryMenuRestModel> categoriesMenu;
   @JsonKey(name: 'photo_url')
   final String photoUrl;
+  @JsonKey(name: 'banner_url')
+  final String bannerUrl;
   // final List<ReviewRestModel>? reviews;
 
   BusinessRestModel({
@@ -28,12 +29,12 @@ class BusinessRestModel {
     required this.reviewCount,
     required this.price,
     required this.categories,
-    required this.menuTags,
-    required this.menu,
+    required this.categoriesMenu,
     required this.photoUrl,
+    required this.bannerUrl,
     // required this.reviews,
   });
 
-  factory BusinessRestModel.fromJson(Map<String, dynamic> json) => _$BusinessFromJson(json);
-  Map<String, dynamic> toJson() => _$BusinessToJson(this);
+  factory BusinessRestModel.fromJson(Map<String, dynamic> json) => _$BusinessRestModelFromJson(json);
+  Map<String, dynamic> toJson() => _$BusinessRestModelToJson(this);
 }

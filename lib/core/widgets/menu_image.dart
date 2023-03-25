@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-class CircleImage extends StatelessWidget {
+class MenuImage extends StatelessWidget {
   final double? width;
   final double? height;
   final String imageUrl;
-  const CircleImage({Key? key, required this.imageUrl, this.width, this.height}) : super(key: key);
+  const MenuImage({Key? key, required this.imageUrl, this.width = 84, this.height = 60}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,7 @@ class CircleImage extends StatelessWidget {
       height: height,
       margin: const EdgeInsets.all(6),
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey.shade400,),
-          shape: BoxShape.circle,
+          borderRadius: BorderRadius.circular(6),
           image: DecorationImage(
             image: CachedNetworkImageProvider(imageUrl),
             fit: BoxFit.cover,

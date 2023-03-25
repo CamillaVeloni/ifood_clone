@@ -17,11 +17,14 @@ class FilterButtons extends StatelessWidget {
             FilterButton(
                 title: 'Ordenar',
                 onPressed: () {},
-                icon: Icons.keyboard_arrow_down_outlined),
+                icon: Icon(Icons.keyboard_arrow_down_outlined,
+                    color: Colors.grey.shade700, size: 18)),
             FilterButton(
                 title: 'Pra retirar',
                 onPressed: () {},
-                icon: Icons.directions_walk, alignment: IconAlignment.left),
+                icon: Icon(Icons.directions_walk,
+                    color: Colors.grey.shade700, size: 18),
+                alignment: IconAlignment.left),
             FilterButton(
               title: 'Entrega grátis',
               onPressed: () {},
@@ -30,17 +33,20 @@ class FilterButtons extends StatelessWidget {
             FilterButton(
               title: 'Vale-refeição',
               onPressed: () {},
-              icon: Icons.keyboard_arrow_down_outlined,
+              icon: Icon(Icons.keyboard_arrow_down_outlined,
+                  color: Colors.grey.shade700, size: 18),
             ),
             FilterButton(
               title: 'Tipo de loja',
               onPressed: () {},
-              icon: Icons.keyboard_arrow_down_outlined,
+              icon: Icon(Icons.keyboard_arrow_down_outlined,
+                  color: Colors.grey.shade700, size: 18),
             ),
             FilterButton(
               title: 'Distância',
               onPressed: () {},
-              icon: Icons.keyboard_arrow_down_outlined,
+              icon: Icon(Icons.keyboard_arrow_down_outlined,
+                  color: Colors.grey.shade700, size: 18),
             ),
             FilterButton(
               title: 'Entrega Parceira',
@@ -55,7 +61,8 @@ class FilterButtons extends StatelessWidget {
             FilterButton(
               title: 'Filtros',
               onPressed: () {},
-              icon: Icons.format_align_left_outlined,
+              icon: Icon(Icons.format_align_left_outlined,
+                  color: Colors.grey.shade700, size: 18),
             ),
           ],
         ),

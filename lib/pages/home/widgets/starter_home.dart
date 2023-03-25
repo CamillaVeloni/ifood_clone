@@ -57,8 +57,10 @@ class StarterHome extends StatelessWidget {
         const SliverToBoxAdapter(
           child: Padding(
             padding: EdgeInsets.all(12),
-            child: Text('Lojas',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19)),
+            child: Text(
+              'Lojas',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+            ),
           ),
         ),
         const BusinessList(),

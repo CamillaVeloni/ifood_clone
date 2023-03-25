@@ -10,7 +10,9 @@ class FilterButton extends StatelessWidget {
   final void Function() onPressed;
   final bool hasIcon;
   final IconAlignment alignment;
-  final IconData? icon;
+  final ButtonStyle? buttonStyle;
+  final TextStyle? textStyle;
+  final Widget? icon;
 
   FilterButton({
     Key? key,
@@ -18,16 +20,17 @@ class FilterButton extends StatelessWidget {
     this.hasIcon = true,
     this.alignment = IconAlignment.right,
     required this.onPressed,
-    this.icon,
+    this.icon, this.buttonStyle, this.textStyle,
   }) : super(key: key);
 
-  final buttonStyle = OutlinedButton.styleFrom(
+  final fButtonStyle = OutlinedButton.styleFrom(
     side: BorderSide(color: Colors.grey.shade200),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12)
     )
   );
-  final textStyle = TextStyle(color: Colors.grey.shade700, fontSize: 16);
+
+  final fTextStyle = TextStyle(color: Colors.grey.shade800, fontSize: 16);
 
   Widget filterIconButton() {
     final isAlignmentOnRight = alignment == IconAlignment.right;
@@ -35,24 +38,24 @@ class FilterButton extends StatelessWidget {
     return isAlignmentOnRight
         ? OutlinedButton(
             onPressed: onPressed,
-            style: buttonStyle,
+            style: buttonStyle ?? fButtonStyle,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
                   title,
-                  style: textStyle,
+                  style: textStyle ?? fTextStyle,
                 ),
                 const SizedBox(width: 3),
-                Icon(icon, color: Colors.grey.shade700, size: 18),
+                icon!,
               ],
             ),
           )
         : OutlinedButton.icon(
             onPressed: onPressed,
-            label: Text(title, style: textStyle),
-            icon: Icon(icon, color: Colors.grey.shade700, ),
-            style: buttonStyle,
+            label: Text(title, style: textStyle ?? fTextStyle),
+            icon: icon!,
+            style: buttonStyle ?? fButtonStyle,
           );
   }
 
@@ -64,8 +67,8 @@ class FilterButton extends StatelessWidget {
           ? filterIconButton()
           : OutlinedButton(
               onPressed: onPressed,
-              style: buttonStyle,
-              child: Text(title, style: textStyle),
+              style: buttonStyle ?? fButtonStyle,
+              child: Text(title, style: textStyle ?? fTextStyle),
             ),
     );
   }
