@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 import '/core/models/business.dart';
 
 import 'rest_client.dart';
@@ -10,7 +10,7 @@ class ApiUtil {
 
   static Dio getHttpClient() {
     final dio = Dio();
-    var adapter = dio.httpClientAdapter as DefaultHttpClientAdapter;
+    var adapter = dio.httpClientAdapter as IOHttpClientAdapter;
 
     adapter.onHttpClientCreate = (HttpClient client) {
       client.badCertificateCallback = (cert, host, port) => true;
