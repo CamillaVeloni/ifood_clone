@@ -5,4 +5,4 @@ This is a clone of the iFood App built using Flutter and the mockapi - using ret
 
 ## Screenshots
 
-![interface_ifood_clone](https://user-images.githubusercontent.com/48810804/227052458-780e2aa4-fed0-4b43-b8d6-c5bce30ebc37.png)
+![ifood_clone](https://user-images.githubusercontent.com/48810804/235033736-1ff60cb9-5455-49ea-8194-9d0c9e3ef911.png)
